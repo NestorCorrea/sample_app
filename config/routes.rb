@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
 
+  get "static_pages/contact"
+
   get "vendor_pages/agreement"
 
   # Static pages
