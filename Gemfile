@@ -1,17 +1,12 @@
 source 'https://rubygems.org'
 
-# to test the  aasd commit
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '1.3.5'
-
-# Testing Gems
-gem 'rspec-rails', '2.11.0'
-group :test do
-  gem 'capybara', '1.1.2'
+group :development, :test do
+  gem 'sqlite3',      '1.3.5'
+  gem 'rspec-rails',  '2.12.0'
+ #  gem 'libxml2.2.dylib', '12'
 end
 
 
@@ -20,15 +15,15 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.2.3'
+  gem 'uglifier',     '>= 1.2.3'
 end
 
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails',   '2.0.2'
 
+# Testing Gems
+group :test do
+  gem 'capybara',     '1.1.2'
+end
 
 # Used for production and deploying to Heroku
 group :production do
