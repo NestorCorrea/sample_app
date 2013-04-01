@@ -1,7 +1,5 @@
 SampleApp::Application.routes.draw do
 
-  get "users/new"
-
   # ================================
   # Home Routes
   # ================================
@@ -11,6 +9,10 @@ SampleApp::Application.routes.draw do
   # ================================
   # Static Page Routes
   # ================================
+  # Gallery
+  match '/artwork', to: 'gallery_pages#artwork'
+  match '/artists', to: 'gallery_pages#artists'
+
   # Static
   match '/',        to: 'static_pages#home'
   match '/about',   to: 'static_pages#about'
@@ -21,8 +23,8 @@ SampleApp::Application.routes.draw do
   match '/signup',  to: 'users#new'
 
   # Vendors
-  match '/vendor/agreement',  to: 'vendor_pages#agreement'
-  match '/vendor/statistics', to: 'vendor_pages#statistics'
+  match '/agreement',  to: 'vendor_pages#agreement'
+  match '/statistics', to: 'vendor_pages#statistics'
 
 
 
