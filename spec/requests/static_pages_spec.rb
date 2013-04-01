@@ -6,15 +6,29 @@ describe "Static pages" do
 
 
   # ===============================
+  # Shared Examples
+  # ===============================
+  shared_examples_for "all static pages" do
+    it {should have_selector("h1",    text: heading)}
+    it {should have_selector("title", text: full_title(page_title))}
+  end
+
+
+  # ===============================
   # Home page tests
   # ===============================
   describe "Home page" do
     # Visit the page first before each test
     before {visit root_path}
 
+    # Set variables
+    let(:heading)     {'Sample App'}
+    let(:page_title)  {''}
+
+    # Run test shared tests
+    it_should_behave_like "all static pages"
+
     # Tests
-    it {should     have_selector("h1",     text: 'Sample App')}
-    it {should     have_selector("title",  text: full_title(''))}
     it {should_not have_selector("title",  text: "| Home")}
   end
 
@@ -26,9 +40,12 @@ describe "Static pages" do
     # Visit the page first before each test
     before {visit help_path}
 
-    # Tests
-    it {should have_selector("h1",    text:'Help me please')}
-    it {should have_selector("title", text:full_title('Help'))}
+    # Set variables
+    let(:heading)     {'Help me please'}
+    let(:page_title)  {'Help'}
+
+    # Run test shared tests
+    it_should_behave_like "all static pages"
   end
 
 
@@ -39,9 +56,12 @@ describe "Static pages" do
     # Visit the page first before each test
     before {visit about_path}
 
-    # Tests
-    it {should have_selector("h1",      text: "About Us")}
-    it {should have_selector("title" ,  text: full_title('About'))}
+    # Set variables
+    let(:heading)     {'About Us'}
+    let(:page_title)  {'About'}
+
+    # Run test shared tests
+    it_should_behave_like "all static pages"
   end
 
 
@@ -52,8 +72,11 @@ describe "Static pages" do
     # Visit the page first before each test
     before {visit contact_path}
 
-    # Tests
-    it {should have_selector("h1",    text: "Contact us")}
-    it {should have_selector("title", text: full_title('Contact'))}
+    # Set variables
+    let(:heading)     {'Contact us'}
+    let(:page_title)  {'Contact'}
+
+    # Run test shared tests
+    it_should_behave_like "all static pages"
   end
 end
