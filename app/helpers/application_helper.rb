@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   # Returns the the full title for pages
   def full_title(page_title)
     base_title = "Ruby on Rails Sample App"

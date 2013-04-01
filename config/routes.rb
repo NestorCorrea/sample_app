@@ -1,13 +1,29 @@
 SampleApp::Application.routes.draw do
 
-  # Vendor test
-  get "vendor_pages/agreement"
+  get "users/new"
 
-  # Static pages
-  get "static_pages/contact"
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
+  # ================================
+  # Home Routes
+  # ================================
+  root :to => 'static_pages#home'
+
+
+  # ================================
+  # Static Page Routes
+  # ================================
+  # Static
+  match '/',        to: 'static_pages#home'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/help',    to: 'static_pages#help'
+
+  # Users
+  match '/signup',  to: 'users#new'
+
+  # Vendors
+  match '/vendor/agreement',  to: 'vendor_pages#agreement'
+  match '/vendor/statistics', to: 'vendor_pages#statistics'
+
 
 
 
