@@ -13,7 +13,6 @@ describe "Static pages" do
     it {should have_selector("title", text: full_title(page_title))}
   end
 
-
   # ===============================
   # Home page tests
   # ===============================
@@ -37,7 +36,7 @@ describe "Static pages" do
   # Help page tests
   # ===============================
   describe "Help page" do
-    # Visit the page first before each test
+    # Visit the page first before each test    zdfsf
     before {visit help_path}
 
     # Set variables
