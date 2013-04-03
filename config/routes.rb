@@ -4,6 +4,7 @@ SampleApp::Application.routes.draw do
   # ================================
   # Resource Routes
   # ================================
+  resources :sessions, only: [:new, :create, :destroy]
   resources :users
 
 
@@ -18,21 +19,23 @@ SampleApp::Application.routes.draw do
   # Static Page Routes
   # ================================
   # Gallery
-  match '/artwork', to: 'gallery_pages#artwork'
-  match '/artists', to: 'gallery_pages#artists'
+  match '/artwork',     to: 'gallery_pages#artwork'
+  match '/artists',     to: 'gallery_pages#artists'
 
   # Static
-  match '/',        to: 'static_pages#home'
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
-  match '/help',    to: 'static_pages#help'
+  match '/',            to: 'static_pages#home'
+  match '/about',       to: 'static_pages#about'
+  match '/contact',     to: 'static_pages#contact'
+  match '/help',        to: 'static_pages#help'
 
   # Users
-  match '/signup',  to: 'users#new'
+  match '/signup',      to: 'users#new'
+  match '/signin',      to: 'sessions#new'
+  match '/signout',     to: 'sessions#destroy', via: :delete
 
   # Vendors
-  match '/agreement',  to: 'vendor_pages#agreement'
-  match '/statistics', to: 'vendor_pages#statistics'
+  match '/agreement',   to: 'vendor_pages#agreement'
+  match '/statistics',  to: 'vendor_pages#statistics'
 
 
 
