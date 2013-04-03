@@ -11,4 +11,9 @@ require 'spec_helper'
 #   end
 # end
 describe GalleryPagesHelper do
+   describe "string concat" do
+     it "concats two strings with spaces" do
+       1 == 1
+     end
+   end
 end

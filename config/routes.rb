@@ -1,6 +1,12 @@
 SampleApp::Application.routes.draw do
 
-  get "users/new"
+
+  # ================================
+  # Resource Routes
+  # ================================
+  resources :users
+
+
 
   # ================================
   # Home Routes
